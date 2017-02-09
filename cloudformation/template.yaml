@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: A 'lambda_function' stack for project 'local-lambda-development'; rendered on 2017-02-07 by fabricate.
+Description: A 'custom_cw_metric' stack for project 'elb-custom-metric'; rendered on 2017-02-03 by fabricate.
 
 Metadata:
   CommitHash: 0890c58c1cd63e727b510f86035ab86309a352f9
@@ -9,7 +9,7 @@ Metadata:
 Parameters:
   ResourcePrefix:
     Type: String
-    Description: A description to identify resources (e.g. "my-perf-test")
+    Description: A description to identify resources  (e.g. "my-perf-test")
     MinLength: 2
 
   ScheduleExpression:
@@ -25,12 +25,14 @@ Parameters:
     Type: Number
     Description: Memory for the function in MB
 
+
 Conditions:
   HasSchedule:
     "Fn::Not":
       - "Fn::Equals":
           - { Ref: ScheduleExpression }
           - ""
+
 
 Resources:
   LambdaFunction:
@@ -70,7 +72,9 @@ Resources:
             Resource: "arn:aws:logs:*:*:*"
           - Effect: Allow
             Action:
-              - "ec2:DescribeSecurityGroups"
+              - "cloudwatch:GetMetricData"
+              - "cloudwatch:GetMetricStatistics"
+              - "cloudwatch:PutMetricData"
             Resource: "*"
 
 

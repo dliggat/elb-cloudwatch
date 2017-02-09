@@ -1,3 +1,21 @@
+# ELB BackendSuccessRate
+
+A custom CloudWatch metric for calculating:
+
+```
+BackendSuccessRate = HTTPCode_Backend_2XX / (HTTPCode_Backend_2XX + HTTPCode_Backend_5XX)
+```
+
+## Development
+
+Set appropriate values in `config.yaml`. To run without publishing to CloudWatch:
+
+```bash
+MOCK=true python index.py
+```
+
+---
+
 # Local Lambda Toolkit
 A set of conventions for local AWS Lambda software development.
 
@@ -33,8 +51,14 @@ A set of conventions for local AWS Lambda software development.
 
 Creates a CloudFormation stack with the Lambda function, an execution role, and an optional CloudWatch event to run on a recurring basis.
 
+```bash
+make create-stack
 ```
-make provision
+
+For updates:
+
+```bash
+make update-stack
 ```
 
 

@@ -1,0 +1,4 @@
+load_balancer_name: elb-demo-elb
+interval_seconds: 300
+custom_namespace: dliggat-custom
+metric_name: BackendSuccessRate
