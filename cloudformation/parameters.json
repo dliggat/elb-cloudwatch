@@ -5,7 +5,7 @@
     "ParameterKey": "ResourcePrefix"
   },
   {
-    "ParameterValue": "rate(5 minutes)",
+    "ParameterValue": "rate(1 minute)",
     "UsePreviousValue": false,
     "ParameterKey": "ScheduleExpression"
   },

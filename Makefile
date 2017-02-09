@@ -24,7 +24,7 @@ update-stack:
 	  --capabilities CAPABILITY_IAM
 
 invoke:
-	python index.py
+	MOCK=true python index.py
 
 test:
 	py.test -rsxX -q -s tests

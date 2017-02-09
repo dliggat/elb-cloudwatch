@@ -11,7 +11,7 @@ BackendSuccessRate = HTTPCode_Backend_2XX / (HTTPCode_Backend_2XX + HTTPCode_Bac
 Set appropriate values in `config.yaml`. To run without publishing to CloudWatch:
 
 ```bash
-MOCK=true python index.py
+make invoke  # Runs `MOCK=true python index.py`
 ```
 
 ---
