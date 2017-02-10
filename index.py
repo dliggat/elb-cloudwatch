@@ -55,8 +55,8 @@ def _publish_metric(value, metric_name, namespace='Custom'):
         metric_name: (str) A label for the custom metric.
         namespace: (str) A namespace to contain the custom metric.
     """
-    if bool(os.getenv('MOCK')):
-        logger.info('Mock detected; will not publish to CloudWatch')
+    if bool(os.getenv('STUB')):
+        logger.info('Stub detected; will not publish to CloudWatch')
     else:
         logger.info('Publishing to CloudWatch')
         client.put_metric_data(
