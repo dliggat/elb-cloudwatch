@@ -41,7 +41,6 @@ def _loadbalancer_response_count(metric, lbname, interval_seconds):
     )
     logger.info(response)
     result = 0.0
-    # import pdb; pdb.set_trace()
     for datapoint in response['Datapoints']:
         result += datapoint[statistic]
     logger.info('Returning {0} for metric {1}'.format(result, metric))
@@ -101,8 +100,6 @@ def handler(event, context):
     metric_value = numerator / denominator
     _publish_metric(metric_value,
         metric_name=config['metric_name'], namespace=config['custom_namespace'])
-
-
 
 
 if __name__ == '__main__':
